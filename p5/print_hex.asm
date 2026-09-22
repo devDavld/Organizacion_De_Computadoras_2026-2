@@ -6,7 +6,7 @@ section	.text
 
 _start:                     ;tell linker entry point
 
-	mov al,100
+	mov al,90
 	call pHex_b	; muestra en pantalla 64
 
 	mov al,10	; cambio de linea
