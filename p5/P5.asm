@@ -51,7 +51,15 @@ _start:                     ;tell linker entry point
     ;Inciso e)
     mov bl,bx
     div bl
+    mov cl, al
+    mov ax, ah
+    call pHex_w
+    mov al, 10
+    call putchar
+    mov ax, cl
     call pHex_w 
+    mov al, 10
+    call putchar
 
 
     ;Final del programa
