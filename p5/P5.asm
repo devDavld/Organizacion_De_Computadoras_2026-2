@@ -21,5 +21,13 @@ _start:                     ;tell linker entry point
     mov al,10	; cambio de linea
 	call putchar
 
+    push bx
+    pop ax
+    call pHex_w ;al quitar la de le indico que lo que imprimira es de 16 bits
+
+    mov al,10	; cambio de linea
+	call putchar
+    
+
     mov eax, 1
     int 0x80
