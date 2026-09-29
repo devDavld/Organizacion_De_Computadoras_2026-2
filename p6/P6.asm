@@ -4,12 +4,11 @@ section .text
     global _start
     extern pBin_dw
 _start:
+
     ;Inciso a)
     mov eax, 0x22446688
     ror eax, 4
-
     call pHex_dw
-
     mov al, 10
     call putchar
 
@@ -17,7 +16,6 @@ _start:
     mov cx, 0x3F48
     shl cx, 3
     mov ax, cx
-
     call pHex_w
     mov al, 10
     call putchar
@@ -39,7 +37,15 @@ _start:
     call pHex_b
     mov al, 10
     call putchar
+
     ;inciso f)
+    mov bp, 0x67DA
+    and bp, 0xBBAD
+    mov ax, bp
+    call pHex_w
+    mov al, 10
+    call putchar
+
     ;inciso g)
     ;inciso h)
     ;inciso i)
