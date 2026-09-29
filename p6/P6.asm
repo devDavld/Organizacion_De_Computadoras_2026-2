@@ -31,6 +31,7 @@ _start:
     call putchar
     
     ;inciso d)
+    push esi
     ;inciso e)
     ;inciso f)
     ;inciso g)
