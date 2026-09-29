@@ -2,7 +2,7 @@
 
 section .text
     global _start
-
+    extern pBin_dw
 _start:
     ;Inciso a)
     mov eax, 0x22446688
@@ -15,14 +15,20 @@ _start:
 
     ;inciso b)
     mov cx, 0x3F48
-    shl cx, 1
+    shl cx, 3
     mov ax, cx
 
     call pHex_w
     mov al, 10
     call putchar
+
     ;inciso c)
     mov esi, 0x20D685F3 
+    xor esi, 0x40042021
+    mov eax, esi
+    call pHex_dw
+    mov al, 10
+    call putchar
     
     ;inciso d)
     ;inciso e)
