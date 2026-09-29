@@ -33,13 +33,19 @@ _start:
     ;inciso d)
     push esi
     ;inciso e)
+    mov ch, 0xA7
+    or ch, 0x48
+    mov al, ch
+    call pHex_b
+    mov al, 10
+    call putchar
     ;inciso f)
     ;inciso g)
     ;inciso h)
     ;inciso i)
     ;inciso j)
     ;inciso k)
-    push esi
+
     ;final del programa
     mov eax, 1
     int 0x80
