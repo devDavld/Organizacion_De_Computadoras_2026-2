@@ -55,7 +55,21 @@ _start:
     call putchar
     
     ;inciso h)
+    shr ebx, 5
+
+    mov eax, ebx
+    call pHex_dw
+    mov al, 10
+    call putchar
+
+
     ;inciso i)
+    shl cx, 3
+
+    mov ax, cx
+    call pHex_w
+    mov al, 10
+    call putchar
     ;inciso j)
     ;inciso k)
 
