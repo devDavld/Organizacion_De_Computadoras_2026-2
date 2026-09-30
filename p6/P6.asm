@@ -70,8 +70,25 @@ _start:
     call pHex_w
     mov al, 10
     call putchar
+
     ;inciso j)
+    pop esi
+
+    mov eax, esi
+    call pHex_dw
+    mov al, 10
+    call putchar
+
     ;inciso k)
+    mov ebx, esi
+    shl esi, 3
+    shl ebx, 1
+    add esi, ebx
+
+    mov eax, esi
+    call pHex_dw
+    mov al, 10
+    call putchar
 
     ;final del programa
     mov eax, 1
