@@ -1,6 +1,7 @@
 global pBin8b
 global pBin16b
 global pBin32b
+global pBin64b
 
 section .text
 pBin8b: push ebp
@@ -71,6 +72,53 @@ sig32:
     dec ecx
     cmp ecx, -1
     jne ciclo32
+
+    pop ebp
+    ret
+
+pBin64b:
+    push ebp
+    mov ebp, esp
+
+    ; Parte alta de 32 bits
+    mov edx, [ebp + 12]
+    mov ecx, 31
+
+ciclo64a:
+    bt edx, ecx
+    jnc cero64a
+    mov al, '1'
+    call my_putchar
+    jmp sig64a
+
+cero64a:
+    mov al, '0'
+    call my_putchar
+
+sig64a:
+    dec ecx
+    cmp ecx, -1
+    jne ciclo64a
+
+    ; Parte baja de 32 bits
+    mov edx, [ebp + 8]
+    mov ecx, 31
+
+ciclo64b:
+    bt edx, ecx
+    jnc cero64b
+    mov al, '1'
+    call my_putchar
+    jmp sig64b
+
+cero64b:
+    mov al, '0'
+    call my_putchar
+
+sig64b:
+    dec ecx
+    cmp ecx, -1
+    jne ciclo64b
 
     pop ebp
     ret
