@@ -1,5 +1,6 @@
 global pBin8b
 global pBin16b
+global pBin32b
 
 section .text
 pBin8b: push ebp
@@ -46,6 +47,30 @@ sig16:
     dec ecx
     cmp ecx, -1
     jne ciclo16
+
+    pop ebp
+    ret
+
+pBin32b:
+    push ebp
+    mov ebp, esp
+    mov edx, [ebp+8]
+    mov ecx, 31
+ciclo32:
+    bt edx, ecx
+    jnc cero32
+    mov al, '1'
+    call my_putchar
+    jmp sig32
+
+cero32:
+    mov al, '0'
+    call my_putchar
+
+sig32:
+    dec ecx
+    cmp ecx, -1
+    jne ciclo32
 
     pop ebp
     ret
