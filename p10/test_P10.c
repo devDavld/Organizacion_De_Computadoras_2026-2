@@ -13,6 +13,7 @@ int main()
     printf("PRUEBAS P10\n\n");
 
     printf("Numero de 8 bits: ");
+    fflush(stdout);
     pBin8b(25);
     printf("\n");
 

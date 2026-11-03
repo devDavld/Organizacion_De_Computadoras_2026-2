@@ -1,32 +1,32 @@
 global pBin8b
 
 section .text
-    pBin8b: push ebp
-            mov ebp, esp
-            movzx edx, [ebp + 8]
-            mov ecx, 7
+pBin8b: push ebp
+    mov ebp, esp
+    movzx edx, byte [ebp + 8]
+    mov ecx, 7
 
-    ciclo8:
-        bt edx, ebp
-        jnc cero8
-        mov al, '1'
-        call my_putchar
-        jmp sig8
+ciclo8:
+    bt edx, ecx
+    jnc cero8
+    mov al, '1'
+    call my_putchar
+    jmp sig8
 
-    cero8:
-        mov al, '0'
-        call my_putchar
+cero8:
+    mov al, '0'
+    call my_putchar
 
-    sig8:
-        dec ecx
-        cmp ecx, -1
-        jne ciclo8
+sig8:
+    dec ecx
+    cmp ecx, -1
+    jne ciclo8
 
-        pop ebp
-        ret
+    pop ebp
+    ret
 
 
-        
+
 
 my_putchar: pushad                 ; salvar todos los registros
                         push eax              ; salvar EAX -- meter el caracter a la pila
